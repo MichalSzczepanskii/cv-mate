@@ -16,13 +16,13 @@ describe('AppComponent', () => {
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('h1')?.textContent).toContain(
-      'Welcome resume-generator'
+      'Welcome cv-mate'
     );
   });
 
-  it(`should have as title 'resume-generator'`, () => {
+  it(`should have as title 'cv-mate'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('resume-generator');
+    expect(app.title).toEqual('cv-mate');
   });
 });

@@ -1,6 +1,6 @@
 import { getGreeting } from '../support/app.po';
 
-describe('resume-generator', () => {
+describe('cv-mate', () => {
   beforeEach(() => cy.visit('/'));
 
   it('should display welcome message', () => {
@@ -8,6 +8,6 @@ describe('resume-generator', () => {
     cy.login('my-email@something.com', 'myPassword');
 
     // Function helper example, see `../support/app.po.ts` file
-    getGreeting().contains('Welcome resume-generator');
+    getGreeting().contains('Welcome cv-mate');
   });
 });

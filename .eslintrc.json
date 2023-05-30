@@ -15,7 +15,7 @@
           "error",
           {
             "type": "attribute",
-            "prefix": "resumeGenerator",
+            "prefix": "cvMate",
             "style": "camelCase"
           }
         ],
@@ -23,7 +23,7 @@
           "error",
           {
             "type": "element",
-            "prefix": "resume-generator",
+            "prefix": "cv-mate",
             "style": "kebab-case"
           }
         ]

@@ -1,9 +1,9 @@
 /* eslint-disable */
 export default {
-  displayName: 'resume-generator',
+  displayName: 'cv-mate',
   preset: './jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
-  coverageDirectory: './coverage/resume-generator',
+  coverageDirectory: './coverage/cv-mate',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': [
       'jest-preset-angular',

@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
-  "npmScope": "resume-generator",
+  "npmScope": "cv-mate",
   "tasksRunnerOptions": {
     "default": {
       "runner": "nx-cloud",
@@ -75,5 +75,5 @@
       "style": "scss"
     }
   },
-  "defaultProject": "resume-generator"
+  "defaultProject": "cv-mate"
 }

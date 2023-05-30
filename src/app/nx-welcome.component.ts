@@ -1,7 +1,7 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 
 @Component({
-  selector: 'resume-generator-nx-welcome',
+  selector: 'cv-mate-nx-welcome',
   template: `
     <!--
      * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -420,7 +420,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
         <div id="welcome">
           <h1>
             <span> Hello there, </span>
-            Welcome resume-generator 👋
+            Welcome cv-mate 👋
           </h1>
         </div>
         <!--  HERO  -->
