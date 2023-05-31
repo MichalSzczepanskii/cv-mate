@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "nx serve",
+    "start": "nx serve cv-mate --host=0.0.0.0 --poll 2000",
     "build": "nx build",
     "test": "nx test"
   },
