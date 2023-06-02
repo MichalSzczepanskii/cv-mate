@@ -5,12 +5,12 @@ import { HomeFeatureComponent } from './home-feature.component';
 const routes: Routes = [
   {
     path: '',
-    component: HomeFeatureComponent
-  }
+    component: HomeFeatureComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class HomeFeatureRoutingModule { }
+export class HomeFeatureRoutingModule {}
