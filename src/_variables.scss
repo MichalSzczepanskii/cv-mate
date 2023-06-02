@@ -1,0 +1,4 @@
+@use '@angular/material' as mat;
+$primary-palette: mat.define-palette(mat.$deep-purple-palette);
+$primary: mat.get-color-from-palette($primary-palette, 500);
+$primary-darker: mat.get-color-from-palette($primary-palette, 'darker');
