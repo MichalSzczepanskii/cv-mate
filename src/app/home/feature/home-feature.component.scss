@@ -1,0 +1,19 @@
+:host {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  margin-top: 12rem;
+  .resumes-list {
+    width: 30rem;
+  }
+  .cv {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .menu {
+      display: flex;
+      align-items: center;
+      gap: 0 3rem;
+    }
+  }
+}
