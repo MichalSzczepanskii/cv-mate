@@ -17,6 +17,13 @@ import { MatToolbarModule } from '@angular/material/toolbar';
       /></span>
     </mat-toolbar>
   `,
-  styles: [],
+  styles: [
+    `
+      .logo {
+        width: 10rem;
+        height: auto;
+      }
+    `,
+  ],
 })
 export class NavbarComponent {}
