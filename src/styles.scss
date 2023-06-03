@@ -1,4 +1,10 @@
-/* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+@import url('/node_modules/flag-icons/css/flag-icons.min.css');
+
+:root {
+  $primary-palette: mat.define-palette(mat.$deep-purple-palette);
+  $primary: mat.get-color-from-palette($primary-palette, 500);
+}
 
 html,
 body {
