@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { HttpClientModule } from '@angular/common/http';
 import { TranslocoRootModule } from './transloco-root.module';
+import { NavbarComponent } from './shared/ui/navbar/navbar.component';
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,6 +18,7 @@ import { TranslocoRootModule } from './transloco-root.module';
     MatToolbarModule,
     HttpClientModule,
     TranslocoRootModule,
+    NavbarComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],
