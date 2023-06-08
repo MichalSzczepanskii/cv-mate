@@ -13,11 +13,16 @@ export class AppComponent implements OnInit {
   constructor(private translocoService: TranslocoService) {}
 
   ngOnInit() {
-    const defaultLangCode = this.translocoService.getDefaultLang();
+    const defaultLangCode = this.translocoService.getActiveLang();
     const supportedLanguageKeys = Object.keys(SupportedLanguage);
     const currentLanguageKey = supportedLanguageKeys.find(
       key => SupportedLanguage[key].translocoCode === defaultLangCode
     );
     this.defaultLanguage = currentLanguageKey ?? supportedLanguageKeys[0];
+  }
+
+  changeLanguage(languageKey: SupportedLanguage) {
+    const language = SupportedLanguage[languageKey];
+    this.translocoService.setActiveLang(language.translocoCode);
   }
 }

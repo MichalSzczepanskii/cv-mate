@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { LanguagePickerComponent } from '../language-picker/language-picker.component';
@@ -19,6 +19,7 @@ import { SupportedLanguage } from '../../data-access/constants/supported-languag
       /></span>
       <span class="spacer"></span>
       <cv-mate-language-picker
+        (newLanguage)="onLanguageChange($event)"
         [selectedLanguage]="language"></cv-mate-language-picker>
     </mat-toolbar>
   `,
@@ -37,4 +38,11 @@ import { SupportedLanguage } from '../../data-access/constants/supported-languag
 export class NavbarComponent {
   @Input({ required: true })
   language!: SupportedLanguage;
+  @Output()
+  changeLanguage: EventEmitter<SupportedLanguage> =
+    new EventEmitter<SupportedLanguage>();
+
+  onLanguageChange(language: SupportedLanguage) {
+    this.changeLanguage.emit(language);
+  }
 }

@@ -44,9 +44,17 @@ describe('AppComponent', () => {
   });
 
   it('should pass english as default language to navbar component if code given by transloco service is not supported', () => {
-    jest.spyOn(translocoService, 'getDefaultLang').mockReturnValue('es');
+    jest.spyOn(translocoService, 'getActiveLang').mockReturnValue('es');
     fixture.detectChanges();
     const navbarComponent = findDirective(fixture, NavbarComponent);
     expect(navbarComponent.componentInstance.language).toEqual('ENGLISH');
+  });
+
+  it('should call translocoService.setDefault with language emited from navbar', () => {
+    jest.spyOn(translocoService, 'setActiveLang');
+    fixture.detectChanges();
+    const navbarComponent = findDirective(fixture, NavbarComponent);
+    navbarComponent.triggerEventHandler('changeLanguage', 'ENGLISH');
+    expect(translocoService.setActiveLang).toHaveBeenCalledWith('en');
   });
 });

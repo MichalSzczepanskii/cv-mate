@@ -8,14 +8,14 @@ export function getTestIdSelector(testId: string): string {
 }
 
 export function queryByCss<T>(
-  fixture: ComponentFixture<T> | MockedComponentFixture<T>,
+  fixture: ComponentFixture<T> | MockedComponentFixture<T, unknown>,
   selector: string
 ) {
   return fixture.debugElement.query(By.css(selector));
 }
 
 export function queryByCssStrict<T>(
-  fixture: ComponentFixture<T> | MockedComponentFixture<T>,
+  fixture: ComponentFixture<T> | MockedComponentFixture<T, unknown>,
   selector: string
 ) {
   const debugElement = queryByCss(fixture, selector);
@@ -27,21 +27,21 @@ export function queryByCssStrict<T>(
 }
 
 export function findEl<T>(
-  fixture: ComponentFixture<T> | MockedComponentFixture<T>,
+  fixture: ComponentFixture<T> | MockedComponentFixture<T, unknown>,
   testId: string
 ) {
   return queryByCss(fixture, getTestIdSelector(testId));
 }
 
 export function findElStrict<T>(
-  fixture: ComponentFixture<T> | MockedComponentFixture<T>,
+  fixture: ComponentFixture<T> | MockedComponentFixture<T, unknown>,
   testId: string
 ) {
   return queryByCssStrict(fixture, getTestIdSelector(testId));
 }
 
 export function findDirective<T>(
-  fixture: ComponentFixture<T> | MockedComponentFixture<T>,
+  fixture: ComponentFixture<T> | MockedComponentFixture<T, unknown>,
   type: Type<unknown>
 ) {
   return fixture.debugElement.query(By.directive(type));

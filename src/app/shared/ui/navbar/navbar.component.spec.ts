@@ -8,7 +8,7 @@ import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('NavbarComponent', () => {
-  let fixture: MockedComponentFixture<NavbarComponent>;
+  let fixture: MockedComponentFixture<NavbarComponent, { language: string }>;
   let component: NavbarComponent;
 
   beforeEach(() => {
@@ -53,5 +53,16 @@ describe('NavbarComponent', () => {
     );
     expect(languagePickerComponent).toBeTruthy();
     expect(languagePickerComponent.componentInstance.value).toEqual('ENGLISH');
+  });
+
+  it('should emit changeLanguage on newLanguage event from LanguagePickerComponent', () => {
+    jest.spyOn(component.changeLanguage, 'emit');
+    fixture.detectChanges();
+    const languagePickerComponent = findDirective(
+      fixture,
+      LanguagePickerComponent
+    );
+    languagePickerComponent.triggerEventHandler('newLanguage', 'POLISH');
+    expect(component.changeLanguage.emit).toHaveBeenCalledWith('POLISH');
   });
 });
