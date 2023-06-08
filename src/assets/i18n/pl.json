@@ -1,1 +1,9 @@
-{}
+{
+  "cvMenu": {
+    "edit": "Edytuj",
+    "delete": "Usuń",
+    "copy": "Duplikuj",
+    "export": "Eksportuj",
+    "downloadPDF": "Pobierz jako PDF"
+  }
+}
