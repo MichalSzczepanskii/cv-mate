@@ -1,4 +1,9 @@
-import { Component, inject, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  OnInit,
+} from '@angular/core';
 import { TranslocoService } from '@ngneat/transloco';
 import { SupportedLanguage } from './shared/data-access/constants/supported-language';
 import { LocalStorageKey } from './shared/data-access/constants/local-storage-key';
@@ -7,6 +12,7 @@ import { LocalStorageKey } from './shared/data-access/constants/local-storage-ke
   selector: 'cv-mate-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent implements OnInit {
   private translocoService = inject(TranslocoService);
