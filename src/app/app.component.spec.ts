@@ -24,7 +24,7 @@ describe('AppComponent', () => {
     component = fixture.point.componentInstance;
     translocoService = fixture.point.injector.get(TranslocoService);
 
-    jest.spyOn(translocoService, 'getDefaultLang').mockReturnValue('pl');
+    jest.spyOn(translocoService, 'getActiveLang').mockReturnValue('pl');
   });
 
   it('should create', () => {
@@ -39,8 +39,6 @@ describe('AppComponent', () => {
   });
 
   it('should pass language to navbar component', () => {
-    fixture.detectChanges();
-    component.defaultLanguage = 'POLISH';
     fixture.detectChanges();
     const navbarComponent = findDirective(fixture, NavbarComponent);
     expect(navbarComponent.componentInstance.language).toEqual('POLISH');
