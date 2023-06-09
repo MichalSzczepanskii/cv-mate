@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { TranslocoService } from '@ngneat/transloco';
 import { SupportedLanguage } from './shared/data-access/constants/supported-language';
 import { LocalStorageKey } from './shared/data-access/constants/local-storage-key';
@@ -9,9 +9,9 @@ import { LocalStorageKey } from './shared/data-access/constants/local-storage-ke
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  defaultLanguage!: SupportedLanguage;
+  private translocoService = inject(TranslocoService);
 
-  constructor(private translocoService: TranslocoService) {}
+  defaultLanguage!: SupportedLanguage;
 
   ngOnInit() {
     const activeLangStorage = localStorage.getItem(LocalStorageKey.ACTIVE_LANG);
