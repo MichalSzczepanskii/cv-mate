@@ -1,6 +1,4 @@
-<mat-toolbar color="primary">
-  <span
-    ><img src="assets/images/logo-no-background.svg" alt="CVMate" class="logo"
-  /></span>
-</mat-toolbar>
+<cv-mate-navbar
+  [language]="defaultLanguage"
+  (changeLanguage)="changeLanguage($event)"></cv-mate-navbar>
 <router-outlet></router-outlet>

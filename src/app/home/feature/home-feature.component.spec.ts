@@ -6,6 +6,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MockModule } from 'ng-mocks';
+import { TranslocoModule } from '@ngneat/transloco';
 
 describe('HomeFeatureComponent', () => {
   let component: HomeFeatureComponent;
@@ -20,6 +22,7 @@ describe('HomeFeatureComponent', () => {
         MatIconModule,
         MatMenuModule,
         MatTooltipModule,
+        MockModule(TranslocoModule),
       ],
     });
     fixture = TestBed.createComponent(HomeFeatureComponent);

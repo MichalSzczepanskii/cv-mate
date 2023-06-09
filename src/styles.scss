@@ -14,3 +14,20 @@ body {
   margin: 0;
   font-family: Roboto, 'Helvetica Neue', sans-serif;
 }
+
+cv-mate-language-picker {
+  .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+    background-color: transparent;
+  }
+  .mat-mdc-select-value {
+    color: white;
+  }
+  .mdc-text-field {
+    border-bottom: none;
+  }
+  .mat-mdc-select,
+  .mat-mdc-option,
+  .mat-mdc-select-panel {
+    font-size: 0.9rem;
+  }
+}
