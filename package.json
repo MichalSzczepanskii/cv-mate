@@ -4,6 +4,8 @@
   "license": "MIT",
   "scripts": {
     "start": "nx serve cv-mate --host=0.0.0.0 --poll 2000",
+    "prettier": "npx nx format:write",
+    "lint": "npx nx affected -t lint --parallel=3",
     "build": "nx build",
     "test": "nx test"
   },
