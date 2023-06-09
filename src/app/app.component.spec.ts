@@ -6,6 +6,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { findDirective } from './spec-utils/elements';
 import { NavbarComponent } from './shared/ui/navbar/navbar.component';
 import { TranslocoService } from '@ngneat/transloco';
+import { LocalStorageKey } from './shared/data-access/constants/local-storage-key';
 
 describe('AppComponent', () => {
   let fixture: MockedComponentFixture<AppComponent>;
@@ -39,6 +40,8 @@ describe('AppComponent', () => {
 
   it('should pass language to navbar component', () => {
     fixture.detectChanges();
+    component.defaultLanguage = 'POLISH';
+    fixture.detectChanges();
     const navbarComponent = findDirective(fixture, NavbarComponent);
     expect(navbarComponent.componentInstance.language).toEqual('POLISH');
   });
@@ -56,5 +59,53 @@ describe('AppComponent', () => {
     const navbarComponent = findDirective(fixture, NavbarComponent);
     navbarComponent.triggerEventHandler('changeLanguage', 'ENGLISH');
     expect(translocoService.setActiveLang).toHaveBeenCalledWith('en');
+  });
+
+  it('should save the emitted language from navbar to localStorage', () => {
+    const storageSpy = jest.spyOn(Storage.prototype, 'setItem');
+    fixture.detectChanges();
+    const navbarComponent = findDirective(fixture, NavbarComponent);
+    navbarComponent.triggerEventHandler('changeLanguage', 'POLISH');
+    expect(storageSpy).toHaveBeenCalledWith(
+      LocalStorageKey.ACTIVE_LANG,
+      'POLISH'
+    );
+  });
+
+  describe('Active Language from localStorage', () => {
+    beforeEach(() => {
+      jest.spyOn(translocoService, 'setActiveLang');
+      jest.spyOn(translocoService, 'getActiveLang');
+    });
+
+    it('should get active language from localStorage if present', () => {
+      const storageSpy = jest
+        .spyOn(Storage.prototype, 'getItem')
+        .mockReturnValue('POLISH');
+      fixture.detectChanges();
+      expect(storageSpy).toHaveBeenCalledWith(LocalStorageKey.ACTIVE_LANG);
+      expect(translocoService.setActiveLang).toHaveBeenCalledWith('pl');
+      expect(translocoService.getActiveLang).not.toHaveBeenCalledWith();
+    });
+
+    it('should get active language from transloco if active lang saved in local storage is null', () => {
+      const storageSpy = jest
+        .spyOn(Storage.prototype, 'getItem')
+        .mockReturnValue(null);
+      fixture.detectChanges();
+      expect(storageSpy).toHaveBeenCalledWith(LocalStorageKey.ACTIVE_LANG);
+      expect(translocoService.setActiveLang).not.toHaveBeenCalled();
+      expect(translocoService.getActiveLang).toHaveBeenCalledWith();
+    });
+
+    it('should get active language from transloco if active lang saved in local storage is not supported', () => {
+      const storageSpy = jest
+        .spyOn(Storage.prototype, 'getItem')
+        .mockReturnValue('TEST');
+      fixture.detectChanges();
+      expect(storageSpy).toHaveBeenCalledWith(LocalStorageKey.ACTIVE_LANG);
+      expect(translocoService.setActiveLang).not.toHaveBeenCalled();
+      expect(translocoService.getActiveLang).toHaveBeenCalledWith();
+    });
   });
 });
