@@ -18,9 +18,7 @@ import { SupportedLanguage } from '../../data-access/constants/supported-languag
           class="logo"
       /></span>
       <span class="spacer"></span>
-      <cv-mate-language-picker
-        (newLanguage)="onLanguageChange($event)"
-        [selectedLanguage]="language"></cv-mate-language-picker>
+      <cv-mate-language-picker></cv-mate-language-picker>
     </mat-toolbar>
   `,
   styles: [

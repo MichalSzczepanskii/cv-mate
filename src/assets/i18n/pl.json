@@ -1,4 +1,9 @@
 {
+  "language": {
+    "english": "Angielski",
+    "polish": "Polski",
+    "inputPlaceholder": "Wybierz język"
+  },
   "cvMenu": {
     "edit": "Edytuj",
     "delete": "Usuń",

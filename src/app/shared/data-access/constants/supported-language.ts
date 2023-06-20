@@ -7,7 +7,7 @@ export const SupportedLanguage: { [key: string]: Language } = {
     code: 'us',
   },
   POLISH: {
-    nameKey: 'language.english',
+    nameKey: 'language.polish',
     translocoCode: 'pl',
     code: 'pl',
   },

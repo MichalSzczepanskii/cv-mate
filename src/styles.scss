@@ -19,10 +19,12 @@ cv-mate-language-picker {
   .mdc-text-field--filled:not(.mdc-text-field--disabled) {
     background-color: transparent;
   }
-  .mat-mdc-select-value {
+  .mat-mdc-select-value,
+  .mat-mdc-select-placeholder {
     color: white;
   }
-  .mdc-text-field {
+  .mdc-text-field,
+  .mat-mdc-select-placeholder {
     border-bottom: none;
   }
   .mat-mdc-select,
