@@ -49,7 +49,7 @@ describe('NavbarComponent', () => {
     fixture.detectChanges();
     const image = findElStrict(fixture, 'logo');
     expect(image.attributes['src']).toEqual(
-      'assets/images/logo-no-background.svg'
+      '../../../assets/images/logo-no-background.svg'
     );
     expect(image.attributes['alt']).toEqual('CVMate');
   });
