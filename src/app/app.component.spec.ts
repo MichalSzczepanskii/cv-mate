@@ -4,7 +4,7 @@ import { AppModule } from './app.module';
 import { RouterModule } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { findDirective } from './spec-utils/elements';
-import { NavbarComponent } from './shared/ui/navbar/navbar.component';
+import { NavbarComponent } from './navbar/feature/navbar.component';
 import { TranslocoService } from '@ngneat/transloco';
 import { LocalStorageKey } from './shared/data-access/constants/local-storage-key';
 
