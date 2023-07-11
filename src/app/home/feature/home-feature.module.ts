@@ -9,6 +9,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { TranslocoModule } from '@ngneat/transloco';
+import { ResumeItemComponent } from '../ui/resume-item/resume-item.component';
 
 @NgModule({
   declarations: [HomeFeatureComponent],
@@ -21,6 +22,7 @@ import { TranslocoModule } from '@ngneat/transloco';
     MatMenuModule,
     MatTooltipModule,
     TranslocoModule,
+    ResumeItemComponent,
   ],
 })
 export class HomeFeatureModule {}

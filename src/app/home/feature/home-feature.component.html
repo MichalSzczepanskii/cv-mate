@@ -2,20 +2,11 @@
   <mat-card>
     <mat-card-header><h2>CVs</h2> </mat-card-header>
     <mat-card-content>
-      <div class="cv" *ngFor="let record of [1, 2, 3]">
-        <div>My very first cv {{ record }}</div>
-        <div class="menu">
-          <div>
-            <span class="fi fi-us"></span>
-          </div>
-          <button
-            mat-icon-button
-            [matMenuTriggerFor]="menu"
-            aria-label="Example icon-button with a menu">
-            <mat-icon>more_vert</mat-icon>
-          </button>
-        </div>
-      </div>
+      <ng-container *ngIf="resumes$ | async as resumes">
+        <cv-mate-resume-item
+          *ngFor="let resume of resumes"
+          [resume]="resume"></cv-mate-resume-item>
+      </ng-container>
     </mat-card-content>
     <mat-card-actions>
       <div class="cvListActions">
@@ -29,25 +20,3 @@
     </mat-card-actions>
   </mat-card>
 </div>
-<mat-menu #menu="matMenu">
-  <button mat-menu-item>
-    <mat-icon>edit</mat-icon>
-    <span>{{ 'cvMenu.edit' | transloco }}</span>
-  </button>
-  <button mat-menu-item>
-    <mat-icon>delete</mat-icon>
-    <span>{{ 'cvMenu.delete' | transloco }}</span>
-  </button>
-  <button mat-menu-item>
-    <mat-icon>content_copy</mat-icon>
-    <span>{{ 'cvMenu.copy' | transloco }}</span>
-  </button>
-  <button mat-menu-item>
-    <mat-icon>download</mat-icon>
-    <span>{{ 'cvMenu.export' | transloco }}</span>
-  </button>
-  <button mat-menu-item>
-    <mat-icon>picture_as_pdf</mat-icon>
-    <span>{{ 'cvMenu.downloadPDF' | transloco }}</span>
-  </button>
-</mat-menu>

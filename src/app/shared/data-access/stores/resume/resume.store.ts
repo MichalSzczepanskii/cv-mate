@@ -37,8 +37,11 @@ export class ResumeStore extends ComponentStore<ResumeState> {
   constructor() {
     super(resumeInitialState);
     const resumes = this.getValidResumes();
-    if (resumes) {
+    if (resumes && resumes.length > 0) {
       this.setState({ resumes: resumes });
+    } else {
+      this.setState(resumeInitialState);
+      console.log('test');
     }
   }
 

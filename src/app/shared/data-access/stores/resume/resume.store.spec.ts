@@ -39,6 +39,21 @@ describe('ResumeStore', () => {
     });
   });
 
+  it('should set state with initial value if array from localStorage is empty', done => {
+    const storageSpy = jest
+      .spyOn(Storage.prototype, 'getItem')
+      .mockReturnValue(JSON.stringify('[]'));
+
+    resumeStore = new ResumeStore();
+
+    expect(storageSpy).toHaveBeenCalledWith(LocalStorageKey.RESUMES);
+    resumeStore.state$.subscribe(state => {
+      expect(state.resumes.length).toEqual(3);
+      expect(state.resumes).toEqual(resumes);
+      done();
+    });
+  });
+
   it('should set initial state from localStorage if it is defined', done => {
     const mockResumes: Resume[] = [
       {
