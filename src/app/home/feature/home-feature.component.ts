@@ -6,7 +6,6 @@ import { ResumeStore } from '../../shared/data-access/stores/resume/resume.store
   templateUrl: './home-feature.component.html',
   styleUrls: ['./home-feature.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [ResumeStore],
 })
 export class HomeFeatureComponent {
   private resumeStore = inject(ResumeStore);

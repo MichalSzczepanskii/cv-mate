@@ -41,7 +41,6 @@ export class ResumeStore extends ComponentStore<ResumeState> {
       this.setState({ resumes: resumes });
     } else {
       this.setState(resumeInitialState);
-      console.log('test');
     }
   }
 

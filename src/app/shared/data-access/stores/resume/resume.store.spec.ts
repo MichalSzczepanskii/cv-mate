@@ -42,7 +42,7 @@ describe('ResumeStore', () => {
   it('should set state with initial value if array from localStorage is empty', done => {
     const storageSpy = jest
       .spyOn(Storage.prototype, 'getItem')
-      .mockReturnValue(JSON.stringify('[]'));
+      .mockReturnValue('[]');
 
     resumeStore = new ResumeStore();
 
@@ -104,6 +104,11 @@ describe('ResumeStore', () => {
   });
 
   it('should select current resumes', done => {
+    jest
+      .spyOn(Storage.prototype, 'getItem')
+      .mockReturnValue(JSON.stringify(resumes));
+
+    resumeStore = new ResumeStore();
     resumeStore.resumes$.subscribe(resumes => {
       expect(resumes.length).toEqual(3);
       expect(resumes).toEqual(resumes);
